@@ -1,0 +1,141 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Accessor
+@{string? username = Accessor.HttpContext.Session.GetString("username");
+    string? type = Accessor.HttpContext.Session.GetString("role");}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BloodBank</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="~/css/style.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sidebar close" style="background-color: #154c79">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="https://health.gov.tt/sites/default/files/styles/large/public/inline-images/Blood%20Bank%20logo%202022-03.png?itok=0H-a6QNb">
+                </span>
+
+                <div class="text header-text">
+                    <span class="name">Blood Bank</span>
+                </div>
+            </div>
+        </header>
+        <div class="menu-bar">
+
+            @if (type == "1")
+            {
+                <div class="d-flex">
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="/Home/BloodTransaction">
+                                <i class="fa-solid fa-chalkboard-user icon"></i>
+                                <span class="text nav-text">Blood transaction</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/Home/DonorRegistrator">
+                                <i class="fa-solid fa-file icon"></i>
+                                <span class="text nav-text">Donor Registration</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/Home/BloodBank">
+                                <i class="fa-solid fa-person-shelter icon"></i>
+                                <span class="text nav-text">Blood Bank</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/Home/ViewEnquiry">
+                                <i class="fa-solid fa-question-circle icon"></i>
+                                <span class="text nav-text">View Enquiry</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/Home/SignOut">
+                                <i class="fa-solid fa-right-from-bracket icon"></i>
+                                <span class="text nav-text">Log out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            }
+
+            @if (type == "2")
+            {
+                <div class="d-flex">
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="/Home/DonorSearch">
+                                <i class="fa-solid fa-chalkboard-user icon"></i>
+                                <span class="text nav-text">Search Donor</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/Home/DonorRegistrator">
+                                <i class="fa-solid fa-file icon"></i>
+                                <span class="text nav-text">Donor Registration</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/Home/BloodBank">
+                                <i class="fa-solid fa-person-shelter icon"></i>
+                                <span class="text nav-text">Blood Bank</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/Home/SignOut">
+                                <i class="fa-solid fa-right-from-bracket icon"></i>
+                                <span class="text nav-text">Log out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            }
+            <br><br><br>
+        </div>
+
+    </nav>
+
+    <section class="home-section">
+        <nav>
+            <div class="search-box">
+            </div>
+            @if (username != null)
+            {
+                <div class="profile-details">
+                    <span class="admin_name">Welcome @username</span>
+                </div>
+            }
+        </nav>
+        <div class="sales-boxes">
+            <img style="margin-left:5px;margin-top:5px" src="https://stanfordbloodcenter.org/wp-content/uploads/2020/06/Blood-facts_10-illustration-graphics__canteen.png" width="100%" height="500">
+            <div class="container">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - BloodBank - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

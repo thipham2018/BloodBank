@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@using BloodBank.Models
+@model List<FullInfor>
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Bloodtype</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.FullName</td>
+            <td>@i.ContactNo</td>
+            <td>@i.Bloodname</td>
+        </tr>
+    }
+</table>
+

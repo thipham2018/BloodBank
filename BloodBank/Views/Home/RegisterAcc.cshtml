@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    form {
+        border: 3px solid #f1f1f1;
+    }
+
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        border: none;
+        border: solid 1px #ccc;
+        border-radius: 10px;
+    }
+
+    button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        width: 12%;
+    }
+
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div class="login" style="width: 40%;margin-top: 5%;margin-left: 10%;">
+    <form action="/Home/SignUp">
+        <div class="container">
+            <label for="uname"><b>Firstname</b></label>
+            <input type="text" placeholder="Enter Firstname"
+                   name="acc.FirstName" id="username" required>
+            <label for="uname"><b>Middlename</b></label>
+            <input type="text" placeholder="Enter Middlename"
+                   name="acc.MiddleName" id="username" required>
+            <label for="uname"><b>Lastname</b></label>
+            <input type="text" placeholder="Enter Lastname"
+                   name="acc.LastName" id="username" required>
+            <label for="psw"><b>Gender</b></label>
+            <select name="acc.Gender" id="cars">
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+            <label for="psw"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email"
+                   name="acc.Email" id="password" required>
+            <label for="psw"><b>ContactNo</b></label>
+            <input type="text" placeholder="Enter ContactNo"
+                   name="acc.ContactNo" id="password" required>
+            <label for="psw"><b>City</b></label>
+            <input type="text" placeholder="Enter City"
+                   name="acc.City" id="password" required>
+            <label for="psw"><b>Address</b></label>
+            <input type="text" placeholder="Enter Address"
+                   name="acc.Address" id="password" required>
+            <label for="psw"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username"
+                   name="acc.Username" id="password" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password"
+                   name="acc.Password" id="password" required>
+            <button style="width: 50%" id='savebtn' type="submit">Sign up</button>
+            @*<a href="/Home/RegisterAcc">Register</a>*@
+        </div>
+    </form>
+</div>

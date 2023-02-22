@@ -1,0 +1,98 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using BloodBank.Models
+@model List<BloodGroup>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    form {
+        border: 3px solid #f1f1f1;
+    }
+
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        border: none;
+        border: solid 1px #ccc;
+        border-radius: 10px;
+    }
+
+    button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        width: 12%;
+    }
+
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div class="login" style="width: 40%;margin-top: 5%;margin-left: 10%;">
+    <form action="/Home/Transaction">
+        <div class="container">
+            <label><b>Product Id</b></label>
+            <br />
+            <input type="number" placeholder="Enter ProductId"
+                   name="transaction.ProductId">
+            <br />
+            @*<label><b>Order No</b></label>
+        <input type="text" placeholder="Enter Name"
+               name="donor.Fullname" id="name">*@
+            <label><b>Order By</b></label>
+            <input type="text" placeholder="Enter Order By"
+                   name="transaction.OrderBy">
+            <label><b>Address</b></label>
+            <input type="text" placeholder="Enter Address"
+                   name="transaction.Address">
+            <label><b>Contact</b></label>
+            <input type="text" placeholder="Enter Contact"
+                   name="transaction.Contact">
+            <label><b>OrderDate</b></label>
+            <br />
+            <input type="date" name="transaction.OrderDate">
+            <br />
+            <label><b>Quantity</b></label>
+            <br />
+            <input type="number" name="transaction.Quantity">
+            <br />
+            <label><b>ShippingDate</b></label>
+            <br />
+            <input type="date" name="transaction.ShippingDate">
+            <br />
+            <label><b>Type</b></label>
+            <br />
+            <select name="transaction.Type">
+                <option value="0">In</option>
+                <option value="1">Out</option>
+            </select>
+            <button style="width: 50%" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>

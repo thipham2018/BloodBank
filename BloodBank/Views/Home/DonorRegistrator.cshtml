@@ -1,0 +1,121 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using BloodBank.Models
+@model List<BloodGroup>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    form {
+        border: 3px solid #f1f1f1;
+    }
+
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        border: none;
+        border: solid 1px #ccc;
+        border-radius: 10px;
+    }
+
+    button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        width: 12%;
+    }
+
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div class="login" style="width: 40%;margin-top: 5%;margin-left: 10%;">
+    <form action="/Home/RegisterDonor">
+        <div class="container">
+            <label for="uname"><b>ID</b></label>
+            <input type="text" placeholder="Enter Username" value="@ViewBag.Id" disabled
+                   name="donor.AccountId" id="username">
+            <label for="psw"><b>Name</b></label>
+            <input type="text" placeholder="Enter Name"
+                   name="donor.Fullname" id="name">
+            <label for="psw"><b>Blood Group</b></label>
+            <select name="donor.BloodGroupId" id="blood">
+                @foreach (BloodGroup p in Model)
+                {
+                    <option value="@p.Id">@p.Bloodname</option>
+                }
+            </select>
+            <br />
+            <label for="psw"><b>Contact</b></label>
+            <input type="text" placeholder="Enter Contact"
+                   name="donor.ContactNo" id="contact">
+            <label for="psw"><b>Address</b></label>
+            <input type="text" placeholder="Enter Address"
+                   name="donor.Address" id="address">
+            <label for="psw"><b>Image</b></label>
+            <input type="file" name="donor.Image" id="image">
+            <button style="width: 50%" type="submit" class="btn btn-primary">Regis</button>
+            @*<button type="button" class="btn btn-success" onclick="Add();">Add</button>*@
+        </div>
+    </form>
+</div>
+
+@*<script>
+        function Add() {
+
+            var file = $('#image').val();
+
+            var formdata = new FormData();
+            formdata.append("base64image", file);
+
+            var data = {
+                AccountId: $('#username').val(),
+                Fullname: $('#name').val(),
+                BloodGroupId: $('#blood').val(),
+                ContactNo: $('#contact').val(),
+                Address: $('#address').val(),
+            };
+            $.ajax({
+                type: "POST",
+                dataType: 'JSON',
+                url: "/Home/RegisterDonor",
+                data: { data: data },
+                success: function (result) {
+                    $('#addModalCenter').modal('hide');
+                    $('#name1').val("");
+                    $('#quantity1').val("");
+                    $('#price1').val("");
+                    $('#original1').val("");
+                    $('#image1').val("");
+                    $('#category1').val("");
+                    console.log(result);
+                },
+            });
+        }
+
+    </script>*@

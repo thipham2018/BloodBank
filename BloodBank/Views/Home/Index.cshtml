@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    form {
+        border: 3px solid #f1f1f1;
+    }
+
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        border: none;
+        border: solid 1px #ccc;
+        border-radius: 10px;
+    }
+
+    button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        width: 12%;
+    }
+
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div class="login" style="width: 40%;margin-top: 5%;margin-left: 10%;">
+    <form action="/Home/Login">
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username"
+                   name="acc.Username" id="username" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password"
+                   name="acc.Password" id="password" required>
+            <button style="width: 50%" id='savebtn' type="submit">Login</button>
+        </div>
+        <a href="/Home/RegisterAcc">Register here</a>
+    </form>
+</div>
